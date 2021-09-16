@@ -23,7 +23,11 @@
             </div>
 
             <div class="mb-3">
-              <p>{{ $post->category->name }}</p>
+              <p>
+                @if ($post->category)
+                   {{ $post->category->name }} 
+                @endif
+              </p>
               <label for="cat" class="form-label">Categoria</label>
               <select name="category_id" id="cat">
                 <option value="">-- Seleziona una categoria --</option>
