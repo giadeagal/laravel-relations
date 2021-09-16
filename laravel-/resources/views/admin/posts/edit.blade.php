@@ -13,11 +13,27 @@
             @csrf
             @method('PATCH')
             <div class="mb-3">
+
               <label for="titolo" class="form-label">Modifica titolo</label>
               <input type="text" name="title" class="form-control
               @error('title')
                   is-invalid
               @enderror" id="titolo" value=" {{old('title', $post->title) }}" aria-describedby="emailHelp">
+              
+            </div>
+
+            <div class="mb-3">
+              
+              <label for="category" class="form-label">Categoria</label>
+              <select name="category_id" id="category">
+                <option value="">-- Scegli una categoria --</option>
+                @foreach ($categories as $category)
+                    <option value="{{$category->id }}"
+                      @if($category->id == old('category_id', $post->$category_id)) selected @endif>
+                      {{ $category->name }}
+                    </option>
+                @endforeach
+              </select>
               
             </div>
 
