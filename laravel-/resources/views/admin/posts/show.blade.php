@@ -6,7 +6,11 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                {{$post->slug}}
+                <p>Categoria: 
+                  @if ($post->category)
+                  {{ $post->category->name }}
+                  @endif
+                </p>
             </div>
             <div class="card-body">
               <h5 class="card-title">{{$post->title}}</h5>
