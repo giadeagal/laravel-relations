@@ -44,6 +44,17 @@
         @endforeach
         </tbody>
       </table>
+
+      <h2>Post per categorie</h2>
+      @foreach ($categories as $category)
+          <strong>{{ $category->name }}</strong>
+          @forelse ($category->posts as $post)
+              <p><a href="{{route('admin.posts.show', $post->slug)}}">{{ $post->title }}</a></p>
+          @empty
+              <p>Ancora nessun post per questa categoria, <a href="{{route('admin.posts.create', $post->slug)}}">aggiungine uno</a></p>
+          @endforelse
+      @endforeach
+
 </div>
     
 @endsection
